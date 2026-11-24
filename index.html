@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUREVIA | Login</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #10100f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+}
+
+.container {
+    width: 100%;
+    max-width: 1050px;
+    min-height: 620px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #191918;
+    border: 1px solid #33332e;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+/* LEFT SIDE */
+
+.left {
+    padding: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+    linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.75)),
+    url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200')
+    center/cover;
+}
+
+.logo {
+    font-size: 27px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    color: #d5b77a;
+}
+
+.left h1 {
+    font-size: 43px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.left p {
+    color: #d1d1d1;
+    line-height: 1.7;
+}
+
+/* RIGHT SIDE */
+
+.right {
+    padding: 65px 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #92928d;
+    margin-bottom: 35px;
+}
+
+label {
+    display: block;
+    margin: 18px 0 9px;
+    font-size: 13px;
+    color: #d6d6d0;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    background: #242422;
+    border: 1px solid #3a3a35;
+    border-radius: 7px;
+    outline: none;
+    color: white;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: #c7a66a;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.options a, .signup a {
+    color: #d5b77a;
+    text-decoration: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 7px;
+    background: #c7a66a;
+    color: #151515;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #e1c58e;
+    transform: translateY(-2px);
+}
+
+.signup {
+    text-align: center;
+    margin-top: 28px;
+    color: #999;
+    font-size: 13px;
+}
+
+.message {
+    color: #d5b77a;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+@media(max-width: 750px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .left {
+        min-height: 220px;
+        padding: 30px;
+    }
+
+    .left h1 {
+        font-size: 28px;
+    }
+
+    .right {
+        padding: 40px 28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <div class="logo">AUREVIA.</div>
+
+        <div>
+            <h1>Find a place<br>to call home.</h1>
+            <p>
+                Discover exceptional properties.
+                Explore opportunities. Find your
+                next destination with AUREVIA.
+            </p>
+        </div>
+    </div>
+
+    <div class="right">
+
+        <h2>Welcome Back</h2>
+        <p class="subtitle">Login to your AUREVIA account.</p>
+
+        <form id="loginForm">
+
+            <label>Email Address</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <div class="options">
+                <label style="margin:0">
+                    <input type="checkbox" style="width:auto">
+                    Remember me
+                </label>
+
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit">Sign In</button>
+
+            <p class="message" id="message"></p>
+
+        </form>
+
+        <div class="signup">
+            Don't have an account?
+            <a href="signup.html">Create Account</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+const form = document.getElementById("loginForm");
+
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    if (!email || !password) {
+        message.textContent = "Please fill in all fields.";
+        return;
+    }
+
+    message.textContent =
+        "Login interface working! Connect authentication to continue.";
+});
+</script>
+
+</body>
+</html>
